@@ -1,0 +1,9 @@
+{
+  "name": "js-img",
+  "version": "1.0.0",
+  "description": "A simple tool for image processing",
+  "main": "index.js",
+  "repository": "https://github.com/Lushenggang/js-img",
+  "author": "Lushenggang",
+  "license": "MIT"
+}
