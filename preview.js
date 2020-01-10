@@ -1,8 +1,8 @@
 export default class Preview {
   constructor (options) {
     let {
-      width = '200px',
-      height = '200px',
+      width = '300px',
+      height = '300px',
       accept
     } = options
     if (options.el instanceof HTMLElement) {
@@ -76,20 +76,23 @@ export default class Preview {
     let imgRect = this.img.getBoundingClientRect()
     let oldLeft = imgRect.left - rect.left
     let oldTop = imgRect.top - rect.top
-    let { width: oldW, height: oldH } = imgRect
-    console.log(oldW, oldH, imgRect.height)
-    let w = oldW * ratio
-    let h = oldH * ratio
+    let w = imgRect.width * ratio
+    let h = imgRect.height * ratio
+    if (w <= 5 || h <= 5) return
+    let detaX = w - imgRect.width
+    let detaY = h - imgRect.height
+
     let centerX = rect.left + rect.width / 2
     let centerY = rect.top + rect.height / 2
     let ratioX = (centerX - imgRect.left) / imgRect.width
     let ratioY = (centerY - imgRect.top) / imgRect.height
+
+
     this.img.style.width = `${w}px`
     this.img.style.height = `${h}px`
-    imgRect = this.img.getBoundingClientRect()
-    let left = centerX - (imgRect.width * ratioX + imgRect.left)
-    let top = centerY - (imgRect.height * ratioY + imgRect.top)
-    this.img.style.left = `${oldLeft + left}px`
-    this.img.style.top = `${oldTop + top}px`
+    let left = centerX - (w * ratioX + imgRect.left)
+    let top = centerY - (h * ratioY + imgRect.top)
+    this.img.style.left = `${oldLeft - detaX / 2}px`
+    this.img.style.top = `${oldTop - detaY / 2}px`
   }
 }
