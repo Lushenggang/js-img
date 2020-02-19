@@ -157,10 +157,10 @@ export default class Preview {
     canvas.height = this.img.width * ratioY
     let ctx = canvas.getContext('2d')
 
-    let sx, sy, dx, dy
-    if (left != imgRect.left) {
-      sx = this.img.width * left  left
-    }
+    // let sx, sy, dx, dy
+    // if (left != imgRect.left) {
+    //   sx = this.img.width * left  left
+    // }
     ctx.drawImage(this.img, 0, 0)
   }
 
