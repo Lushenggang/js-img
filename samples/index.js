@@ -9,6 +9,8 @@ const preview = new Preview({
 
 let btn1 = document.querySelector('.btn1')
 let btn2 = document.querySelector('.btn2')
+let btn3 = document.querySelector('.btn3')
+let btn4 = document.querySelector('.btn4')
 let timer
 
 btn1.onmousedown = () => {
@@ -34,3 +36,4 @@ btn1.onmouseup = func
 btn1.onmouseleave = func
 btn2.onmouseleave = func
 btn2.onmouseup = func
+
